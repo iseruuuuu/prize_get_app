@@ -9,7 +9,9 @@ class GameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(GameScreenController(), tag: '');
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

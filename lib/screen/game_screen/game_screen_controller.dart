@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/preference/shared_preference.dart';
 import 'dart:math' as math;
@@ -16,7 +18,8 @@ class GameScreenController extends GetxController {
   }
 
   void onTapFinish() {
-    Get.off(() => ResultScreen(count: count.value));
+    //Get.off(() => ResultScreen(count: count.value));
+    _gameOverDialog();
   }
 
   void onTapGet() {
@@ -48,13 +51,27 @@ class GameScreenController extends GetxController {
     Get.off(() => ResultScreen(count: count.value));
   }
 
+  void _gameOverDialog() {
+    AwesomeDialog(
+      context: Get.context!,
+      dialogType: DialogType.ERROR,
+      animType: AnimType.RIGHSLIDE,
+      headerAnimationLoop: true,
+      title: '失敗!!',
+      desc: '結果画面で得点をチェックしてみよう!!',
+      dismissOnBackKeyPress: false,
+      btnOkOnPress: () {
+        //TODO 結果画面に飛ぶ
+        Get.off(() => ResultScreen(count: count.value));
+      },
+      btnOkText: '結果画面へ',
+    ).show();
+  }
+
   void _checkHighScore() async {
-    //TODO preferenceを追加
     highScore.value = await Preference().getInt(PreferenceKey.HighScore);
     if (count.value > highScore.value) {
       Preference().setInt(PreferenceKey.HighScore, count.value);
-    } else {
-      //そのまま
-    }
+    } else {}
   }
 }

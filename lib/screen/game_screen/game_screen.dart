@@ -20,7 +20,8 @@ class GameScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Obx(() => Text(
+            Obx(
+              () => Text(
                 '現在の${controller.count}ポイント',
                 style: const TextStyle(
                   fontSize: 40,
@@ -30,7 +31,8 @@ class GameScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 60),
-            Obx(() => Text(
+            Obx(
+              () => Text(
                 '成功確率：${controller.randomPercent}%',
                 style: const TextStyle(
                   fontSize: 40,

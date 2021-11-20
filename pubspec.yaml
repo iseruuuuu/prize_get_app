@@ -10,8 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  #icon
   cupertino_icons: ^1.0.2
+
+  #Loading
   flutter_easyloading: ^3.0.3
+
+  #dialog
+  awesome_dialog: ^2.1.1
 
 dev_dependencies:
   flutter_test:

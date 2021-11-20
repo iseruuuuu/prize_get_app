@@ -1,5 +1,4 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/preference/shared_preference.dart';
 import 'dart:math' as math;
@@ -17,8 +16,85 @@ class GameScreenController extends GetxController {
     randomPercent.value = 100;
   }
 
+  void onTapGet() {
+    _checkPoint();
+  }
+
   void onTapFinish() {
     _finishDialog();
+  }
+
+  void _checkPoint() {
+    randomPercent.value = random.nextInt(100);
+    var value = randomPercent.value;
+    if (value < 10) {
+      _check0();
+    } else if (value > 10 && value < 30) {
+      _check10();
+    } else if (value > 29 && value < 60) {
+      _check30();
+    } else if (value > 59 && value < 90) {
+      _check60();
+    } else {
+      //継続:90% ~ 100%
+      _addPoint();
+    }
+    // //成功なら
+    // _addPoint();
+    // //失敗なら
+    // //_gameOverDialog();
+  }
+
+  _check0() {
+    var n = random.nextInt(9);
+    //TODO 確率は、10％にする。
+    if (n == 0) {
+      //成功
+      _addPoint();
+    } else {
+      //失敗
+      _gameOverDialog();
+    }
+  }
+
+  _check10() {
+    //TODO 30%
+    var n = random.nextInt(9);
+    if (n >= 2) {
+      //成功
+      _addPoint();
+    } else {
+      //失敗
+      _gameOverDialog();
+    }
+  }
+
+  _check30() {
+    //TODO 50%
+    var n = random.nextInt(9);
+    if (n >= 4) {
+      //成功
+      _addPoint();
+    } else {
+      //失敗
+      _gameOverDialog();
+    }
+  }
+
+  _check60() {
+    //TODO 70%
+    var n = random.nextInt(1);
+    if (n >= 6) {
+      //成功
+      _addPoint();
+    } else {
+      //失敗
+      _gameOverDialog();
+    }
+  }
+
+  void _addPoint() {
+    count++;
   }
 
   void _finishDialog() {
@@ -38,31 +114,6 @@ class GameScreenController extends GetxController {
     ).show();
   }
 
-  void onTapGet() {
-    _checkPoint();
-  }
-
-  void _checkPoint() {
-    //TODO 乱数を出す。(%)
-    randomPercent.value = random.nextInt(100);
-    var value = randomPercent.value;
-
-    print(value);
-
-    var randomNumber = random.nextInt(10);
-
-    //成功なら
-    _addPoint();
-    //失敗なら
-    //_gameOverDialog();
-
-    _checkHighScore();
-  }
-
-  void _addPoint() {
-    count++;
-  }
-
   void _gameOverDialog() {
     AwesomeDialog(
       context: Get.context!,
@@ -73,7 +124,7 @@ class GameScreenController extends GetxController {
       desc: '結果画面で得点をチェックしてみよう!!',
       dismissOnBackKeyPress: false,
       btnOkOnPress: () {
-        //TODO 結果画面に飛ぶ
+        count.value = 0;
         Get.off(() => ResultScreen(count: count.value));
       },
       btnOkText: '結果画面へ',

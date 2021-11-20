@@ -17,26 +17,27 @@ class GameScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Obx(() => Text(
                 '現在の${controller.count}ポイント',
                 style: const TextStyle(
-                  fontSize: 30,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.green,
                 ),
               ),
             ),
+            const SizedBox(height: 60,),
             Obx(() => Text(
                 '成功確率：${controller.randomPercent}%',
                 style: const TextStyle(
-                  fontSize: 30,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.green,
                 ),
               ),
             ),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -51,6 +52,7 @@ class GameScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const Spacer(),
           ],
         ),
       ),

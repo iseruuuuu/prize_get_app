@@ -18,8 +18,23 @@ class GameScreenController extends GetxController {
   }
 
   void onTapFinish() {
-    //Get.off(() => ResultScreen(count: count.value));
-    _gameOverDialog();
+    _finishDialog();
+  }
+
+  void _finishDialog() {
+    AwesomeDialog(
+      context: Get.context!,
+      animType: AnimType.LEFTSLIDE,
+      headerAnimationLoop: false,
+      dialogType: DialogType.SUCCES,
+      dismissOnBackKeyPress: false,
+      title: 'ゲーム終了!',
+      desc: '結果画面で得点をチェックしてみよう!!',
+      btnOkText: '結果画面へ',
+      btnOkOnPress: () {
+        Get.off(() => ResultScreen(count: count.value));
+      },
+    ).show();
   }
 
   void onTapGet() {
@@ -38,17 +53,13 @@ class GameScreenController extends GetxController {
     //成功なら
     _addPoint();
     //失敗なら
-    // _gameOver();
+    _gameOverDialog();
 
     _checkHighScore();
   }
 
   void _addPoint() {
     count++;
-  }
-
-  void _gameOver() {
-    Get.off(() => ResultScreen(count: count.value));
   }
 
   void _gameOverDialog() {

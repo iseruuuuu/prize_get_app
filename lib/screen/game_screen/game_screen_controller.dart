@@ -5,10 +5,11 @@ import 'package:prize_get_app/screen/result/result_screen.dart';
 class GameScreenController extends GetxController {
   var count = 0.obs;
   var randomPercent = 0.obs;
-  var random =  math.Random();
+  var random = math.Random();
 
   @override
   void onInit() {
+    super.onInit();
     randomPercent.value = 100;
   }
 
@@ -17,7 +18,7 @@ class GameScreenController extends GetxController {
   }
 
   void onTapGet() {
-   _checkPoint();
+    _checkPoint();
   }
 
   void _checkPoint() {
@@ -27,21 +28,25 @@ class GameScreenController extends GetxController {
 
     print(value);
 
-
     var randomNumber = random.nextInt(10);
 
     //成功なら
     _addPoint();
     //失敗なら
-   // _gameOver();
+    // _gameOver();
 
+    _checkHighScore();
   }
 
   void _addPoint() {
     count++;
   }
 
-  void _gameOver () {
+  void _gameOver() {
+    Get.off(() => ResultScreen(count: count.value));
+  }
 
+  void _checkHighScore() {
+    //TODO preferenceを追加
   }
 }

@@ -56,6 +56,5 @@ class GameScreenController extends GetxController {
     } else {
       //そのまま
     }
-    print(count.value);
   }
 }

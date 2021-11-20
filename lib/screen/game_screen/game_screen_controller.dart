@@ -36,13 +36,8 @@ class GameScreenController extends GetxController {
     } else if (value > 59 && value < 90) {
       _check60();
     } else {
-      //継続:90% ~ 100%
       _addPoint();
     }
-    // //成功なら
-    // _addPoint();
-    // //失敗なら
-    // //_gameOverDialog();
   }
 
   _check0() {
@@ -58,7 +53,7 @@ class GameScreenController extends GetxController {
   }
 
   _check10() {
-    //TODO 30%
+    //TODO 確率は、30％にする。
     var n = random.nextInt(9);
     if (n >= 2) {
       //成功
@@ -70,7 +65,7 @@ class GameScreenController extends GetxController {
   }
 
   _check30() {
-    //TODO 50%
+    //TODO 確率は、50％にする。
     var n = random.nextInt(9);
     if (n >= 4) {
       //成功
@@ -82,7 +77,7 @@ class GameScreenController extends GetxController {
   }
 
   _check60() {
-    //TODO 70%
+    //TODO 確率は、70％にする。
     var n = random.nextInt(1);
     if (n >= 6) {
       //成功

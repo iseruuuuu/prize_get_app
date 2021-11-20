@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/screen/result/result_screen_controller.dart';
 
@@ -25,6 +26,7 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Spacer(),
             const Text(
               '結果画面',
               style: TextStyle(
@@ -33,6 +35,7 @@ class ResultScreen extends StatelessWidget {
                 color: Colors.green,
               ),
             ),
+            const SizedBox(height: 30),
             Text(
               'ポイント数：$count',
               style: const TextStyle(
@@ -41,17 +44,24 @@ class ResultScreen extends StatelessWidget {
                 color: Colors.green,
               ),
             ),
-            TextButton(
-              onPressed: controller.onTap,
-              child: const Text(
-                'タイトルへ戻る',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+
+            const Spacer(),
+
+            //TODO　何度も動くようにしたい。
+            Tada(
+              child: ElevatedButton(
+                onPressed: controller.onTap,
+                child: const Text(
+                  'タイトルへ戻る',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
+            const Spacer(),
           ],
         ),
       ),

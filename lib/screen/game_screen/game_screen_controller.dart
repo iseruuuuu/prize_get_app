@@ -51,7 +51,6 @@ class GameScreenController extends GetxController {
   void _checkHighScore() async {
     //TODO preferenceを追加
     highScore.value = await Preference().getInt(PreferenceKey.HighScore);
-
     if (count.value > highScore.value) {
       Preference().setInt(PreferenceKey.HighScore, count.value);
     } else {

@@ -9,16 +9,18 @@ class GameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(GameScreenController(), tag: '');
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Obx(
-              () => Text(
-                '現在のxxxポイント',
+            Obx(() => Text(
+                '現在の${controller.count}ポイント',
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -50,6 +52,17 @@ class GameScreen extends StatelessWidget {
               ],
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Text(
+          '?',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
       ),
     );

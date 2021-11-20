@@ -17,9 +17,31 @@ class GameScreenController extends GetxController {
   }
 
   void onTapGet() {
+   _checkPoint();
+  }
+
+  void _checkPoint() {
     //TODO 乱数を出す。(%)
-    print(random.nextInt(100));
     randomPercent.value = random.nextInt(100);
+    var value = randomPercent.value;
+
+    print(value);
+
+
+    var randomNumber = random.nextInt(10);
+
+    //成功なら
+    _addPoint();
+    //失敗なら
+   // _gameOver();
+
+  }
+
+  void _addPoint() {
+    count++;
+  }
+
+  void _gameOver () {
 
   }
 }

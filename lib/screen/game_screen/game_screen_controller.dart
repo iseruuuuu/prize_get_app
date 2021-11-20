@@ -32,6 +32,7 @@ class GameScreenController extends GetxController {
       desc: '結果画面で得点をチェックしてみよう!!',
       btnOkText: '結果画面へ',
       btnOkOnPress: () {
+        _checkHighScore();
         Get.off(() => ResultScreen(count: count.value));
       },
     ).show();
@@ -53,7 +54,7 @@ class GameScreenController extends GetxController {
     //成功なら
     _addPoint();
     //失敗なら
-    _gameOverDialog();
+    //_gameOverDialog();
 
     _checkHighScore();
   }

@@ -18,7 +18,8 @@ class GameScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Obx(() => Text(
+            Obx(
+              () => Text(
                 '現在の${controller.count}ポイント',
                 style: const TextStyle(
                   fontSize: 40,
@@ -27,8 +28,11 @@ class GameScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 60,),
-            Obx(() => Text(
+            const SizedBox(
+              height: 60,
+            ),
+            Obx(
+              () => Text(
                 '成功確率：${controller.randomPercent}%',
                 style: const TextStyle(
                   fontSize: 40,
@@ -41,14 +45,52 @@ class GameScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(
-                  onPressed: controller.onTapGet,
-                  child: const Text('Get'),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 3.2,
+                  height: MediaQuery.of(context).size.width / 3.2,
+                  child: ElevatedButton(
+                    onPressed: controller.onTapGet,
+                    child: const Text(
+                        'GET',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue, //ボタンの背景色
+                    ),
+                  ),
                 ),
-                const Text('or'),
-                TextButton(
-                  onPressed: controller.onTapFinish,
-                  child: const Text('Finish'),
+                const SizedBox(width: 20),
+                const Text(
+                    'or',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(width: 20),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width / 3.2,
+                  height: MediaQuery.of(context).size.width / 3.2,
+                  child: ElevatedButton(
+                    onPressed: controller.onTapFinish,
+                    child: const Text(
+                        'FINISH',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red, //ボタンの背景色
+                    ),
+                  ),
+
                 ),
               ],
             ),

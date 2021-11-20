@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:prize_get_app/preference/shared_preference.dart';
 import 'dart:math' as math;
 import 'package:prize_get_app/screen/result/result_screen.dart';
 
@@ -6,6 +7,7 @@ class GameScreenController extends GetxController {
   var count = 0.obs;
   var randomPercent = 0.obs;
   var random = math.Random();
+  var highScore = 0.obs;
 
   @override
   void onInit() {
@@ -46,7 +48,15 @@ class GameScreenController extends GetxController {
     Get.off(() => ResultScreen(count: count.value));
   }
 
-  void _checkHighScore() {
+  void _checkHighScore() async {
     //TODO preferenceを追加
+    highScore.value = await Preference().getInt(PreferenceKey.HighScore);
+
+    if (count.value > highScore.value) {
+      Preference().setInt(PreferenceKey.HighScore, count.value);
+    } else {
+      //そのまま
+    }
+    print(count.value);
   }
 }

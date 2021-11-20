@@ -37,12 +37,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Text(
-              'High Score: xxxx',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+            Obx(() => Text(
+                'High Score: ${controller.highScore}',
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
             ),
           ],

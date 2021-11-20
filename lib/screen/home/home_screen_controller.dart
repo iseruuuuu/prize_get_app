@@ -9,13 +9,4 @@ class HomeScreenController extends GetxController {
     Get.to(() => const GameScreen());
   }
 
-  void onTap2() {
-    //設定画面
-    openAppSettings();
-  }
-
-  void onTap3() {
-    //openAppSettings();
-    Permission.accessNotificationPolicy;
-  }
 }

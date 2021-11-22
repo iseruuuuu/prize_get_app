@@ -21,17 +21,18 @@ class HomeScreenController extends GetxController {
   }
 
   void onTap() {
-    double _progress = 0;
-    Timer? _timer;
-    _timer = Timer.periodic(const Duration(milliseconds: 100), (Timer timer) {
-      EasyLoading.showProgress(_progress,
-          status: '${(_progress * 100).toStringAsFixed(0)}%');
-      _progress += 0.03;
-      if (_progress >= 1) {
-        _timer?.cancel();
-        EasyLoading.dismiss();
-        Get.to(() => const GameScreen());
-      }
-    });
+    // double _progress = 0;
+    // Timer? _timer;
+    // _timer = Timer.periodic(const Duration(milliseconds: 100), (Timer timer) {
+    //   EasyLoading.showProgress(_progress,
+    //       status: '${(_progress * 100).toStringAsFixed(0)}%');
+    //   _progress += 0.03;
+    //   if (_progress >= 1) {
+    //     _timer?.cancel();
+    //     EasyLoading.dismiss();
+    //     Get.to(() => const GameScreen());
+    //   }
+    // });
+    Get.to(() => const GameScreen());
   }
 }

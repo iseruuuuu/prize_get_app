@@ -19,23 +19,25 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(ResultScreenController(), tag: '');
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        elevation: 0,
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(),
             const Text(
-              '結果画面',
+              'ゲーム結果',
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Colors.green,
               ),
             ),
-            const SizedBox(height: 30),
+            const Spacer(),
             Text(
               'ポイント数：$count',
               style: const TextStyle(
@@ -45,7 +47,7 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Flash(
+            Pulse(
               preferences: const AnimationPreferences(
                 autoPlay: AnimationPlayStates.Loop,
               ),

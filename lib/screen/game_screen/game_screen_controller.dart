@@ -17,7 +17,12 @@ class GameScreenController extends GetxController {
   }
 
   void onTapGet() {
-    _checkPoint();
+    if (count.value == 0) {
+      _addPoint();
+      randomPercent.value = random.nextInt(100);
+    } else {
+      _checkPoint();
+    }
   }
 
   void onTapFinish() {
@@ -25,19 +30,25 @@ class GameScreenController extends GetxController {
   }
 
   void _checkPoint() {
-    randomPercent.value = random.nextInt(100);
     var value = randomPercent.value;
+    print(value);
     if (value < 10) {
       _check0();
+      print('0');
     } else if (value > 10 && value < 30) {
       _check10();
+      print('10');
     } else if (value > 29 && value < 60) {
       _check30();
+      print('30');
     } else if (value > 59 && value < 90) {
       _check60();
+      print('60');
     } else {
       _addPoint();
+      print('100');
     }
+    randomPercent.value = random.nextInt(100);
   }
 
   _check0() {
@@ -77,9 +88,9 @@ class GameScreenController extends GetxController {
   }
 
   _check60() {
-    //TODO 確率は、70％にする。
+    //TODO 確率は、80％にする。
     var n = random.nextInt(1);
-    if (n >= 6) {
+    if (n >= 7) {
       //成功
       _addPoint();
     } else {

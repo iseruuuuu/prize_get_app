@@ -44,10 +44,7 @@ class ResultScreen extends StatelessWidget {
                 color: Colors.green,
               ),
             ),
-
             const Spacer(),
-
-            //TODO　何度も動くようにしたい。
             Flash(
               preferences: const AnimationPreferences(
                 autoPlay: AnimationPlayStates.Loop,

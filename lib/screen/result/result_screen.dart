@@ -67,6 +67,15 @@ class ResultScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: controller.onTapPrize,
+        backgroundColor: Colors.red,
+        child: const Icon(
+          Icons.card_giftcard,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
     );
   }
 }

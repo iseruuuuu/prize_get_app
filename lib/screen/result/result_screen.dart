@@ -48,7 +48,10 @@ class ResultScreen extends StatelessWidget {
             const Spacer(),
 
             //TODO　何度も動くようにしたい。
-            Tada(
+            Flash(
+              preferences: const AnimationPreferences(
+                autoPlay: AnimationPlayStates.Loop,
+              ),
               child: ElevatedButton(
                 onPressed: controller.onTap,
                 child: const Text(

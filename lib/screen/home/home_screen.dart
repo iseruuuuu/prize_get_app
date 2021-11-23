@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 1.5,
-                  height: MediaQuery.of(context).size.width / 4,
+                  height: MediaQuery.of(context).size.width / 5,
                   child: ElevatedButton(
                     onPressed: controller.onTap,
                     child: const Text(

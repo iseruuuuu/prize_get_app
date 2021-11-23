@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/preference/shared_preference.dart';
 import 'package:prize_get_app/screen/game_screen/game_screen.dart';
-
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class HomeScreenController extends GetxController {

@@ -38,19 +38,19 @@ class CrownScreen extends StatelessWidget {
               CrownButton(
                 image: 'assets/images/icon_bronze.png',
                 point: '03ポイント',
-                onTap: () {},
+                onTap: controller.onTapExchange3,
                 buttonText: '交換する',
               ),
               CrownButton(
                 image: 'assets/images/icon_silver.png',
                 point: '05ポイント',
-                onTap: () {},
+                onTap: controller.onTapExchange2,
                 buttonText: '交換する',
               ),
               CrownButton(
                 image: 'assets/images/icon_gold.png',
                 point: '10ポイント',
-                onTap: () {},
+                onTap: controller.onTapExchange3,
                 buttonText: '交換する',
               ),
               const Spacer(),

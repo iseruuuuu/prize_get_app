@@ -13,4 +13,29 @@ class CrownScreenController extends GetxController {
   void _sharedPreference() async {
     highScore.value = await Preference().getInt(PreferenceKey.HighScore);
   }
+
+  void onTapExchange1() {
+    if (highScore.value == 3) {
+    } else {
+      //何もなし
+    }
+  }
+
+  void onTapExchange2() {
+    if (highScore.value == 5) {
+    } else {
+      //何もなし
+    }
+  }
+
+  void onTapExchange3() {
+    if (highScore.value == 10) {
+    } else {
+      //何もなし
+    }
+  }
+
+  void _notGetIcon() {
+    //TODO ダイアログを出す。
+  }
 }

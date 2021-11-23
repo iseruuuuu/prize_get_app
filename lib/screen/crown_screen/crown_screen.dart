@@ -32,6 +32,30 @@ class CrownScreen extends StatelessWidget {
                   color: Colors.green,
                 ),
               ),
+              const Text('クリア数に応じてアイコンをアップグレードできます。'),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const Text(
+                    '３ポイント',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      Text('アイコン'),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text('交換or変更or変更'),
+                      )
+                    ],
+                  ),
+                ],
+              ),
               const Spacer(),
             ],
           ),

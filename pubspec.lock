@@ -230,6 +230,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.0"
+  flutter_dynamic_icon:
+    dependency: "direct main"
+    description:
+      name: flutter_dynamic_icon
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   flutter_easyloading:
     dependency: "direct main"
     description:

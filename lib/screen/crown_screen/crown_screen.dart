@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/component/crown_button.dart';
 import 'crown_scrren_controller.dart';
+import 'package:flutter_dynamic_icon/flutter_dynamic_icon.dart';
 
 class CrownScreen extends StatelessWidget {
   const CrownScreen({
@@ -38,7 +39,7 @@ class CrownScreen extends StatelessWidget {
               CrownButton(
                 image: 'assets/images/icon_bronze.png',
                 point: '03ポイント',
-                onTap: controller.onTapExchange3,
+                onTap: controller.onTapExchange1,
                 buttonText: '交換する',
               ),
               CrownButton(

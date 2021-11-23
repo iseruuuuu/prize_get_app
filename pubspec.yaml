@@ -13,6 +13,7 @@ dependencies:
 
   #icon
   cupertino_icons: ^1.0.2
+  flutter_dynamic_icon: ^2.0.0
 
   #Loading
   flutter_easyloading: ^3.0.3
@@ -20,6 +21,8 @@ dependencies:
   #dialog
   awesome_dialog: ^2.1.1
   flutter_animator: ^3.2.0
+
+
 
 dev_dependencies:
   flutter_test:

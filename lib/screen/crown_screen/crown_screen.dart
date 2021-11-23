@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:prize_get_app/component/crown_button.dart';
 import 'crown_scrren_controller.dart';
 
 class CrownScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class CrownScreen extends StatelessWidget {
       bottom: false,
       minimum: const EdgeInsets.only(top: 90),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade50,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
@@ -34,27 +35,23 @@ class CrownScreen extends StatelessWidget {
               ),
               const Text('クリア数に応じてアイコンをアップグレードできます。'),
               const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Text(
-                    '３ポイント',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Text('アイコン'),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text('交換or変更or変更'),
-                      )
-                    ],
-                  ),
-                ],
+              CrownButton(
+                image: 'assets/images/icon_bronze.png',
+                point: '03ポイント',
+                onTap: () {},
+                buttonText: '交換する',
+              ),
+              CrownButton(
+                image: 'assets/images/icon_silver.png',
+                point: '05ポイント',
+                onTap: () {},
+                buttonText: '交換する',
+              ),
+              CrownButton(
+                image: 'assets/images/icon_gold.png',
+                point: '10ポイント',
+                onTap: () {},
+                buttonText: '交換する',
               ),
               const Spacer(),
             ],

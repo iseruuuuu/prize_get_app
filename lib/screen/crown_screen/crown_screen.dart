@@ -19,7 +19,7 @@ class CrownScreen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey.shade50,
         ),
         body: Center(
           child: Column(

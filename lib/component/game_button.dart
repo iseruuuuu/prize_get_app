@@ -22,7 +22,7 @@ class GameButton extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(
-            fontSize: 25,
+            fontSize: 23,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),

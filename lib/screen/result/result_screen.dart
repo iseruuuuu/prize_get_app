@@ -56,7 +56,7 @@ class ResultScreen extends StatelessWidget {
                 child: const Text(
                   'タイトルへ戻る',
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

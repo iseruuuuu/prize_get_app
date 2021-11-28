@@ -4,7 +4,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/color/app_color.dart';
 import 'package:prize_get_app/component/home_app_bar_item.dart';
-import 'package:prize_get_app/component/home_icon.dart';
 import 'package:prize_get_app/screen/home/home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {

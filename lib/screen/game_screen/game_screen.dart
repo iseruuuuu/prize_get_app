@@ -25,14 +25,13 @@ class GameScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 60),
-            Obx(
-              () => Text(
+            const Spacer(),
+            Obx(() => Text(
                 '成功確率：${controller.randomPercent}%',
                 style: const TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green,
+                  color: AppColor.homeColor,
                 ),
               ),
             ),
@@ -41,7 +40,7 @@ class GameScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GameButton(
-                  text: 'GET',
+                  text: '挑戦',
                   color: Colors.blue,
                   onTap: controller.onTapGet,
                 ),
@@ -49,7 +48,7 @@ class GameScreen extends StatelessWidget {
                 const OrText(),
                 const SizedBox(width: 20),
                 GameButton(
-                  text: 'FINISH',
+                  text: '終了',
                   color: Colors.red,
                   onTap: controller.onTapFinish,
                 ),

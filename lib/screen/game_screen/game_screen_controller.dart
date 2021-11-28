@@ -141,6 +141,6 @@ class GameScreenController extends GetxController {
     highScore.value = await Preference().getInt(PreferenceKey.HighScore);
     if (count.value > highScore.value) {
       Preference().setInt(PreferenceKey.HighScore, count.value);
-    } else {}
+    }
   }
 }

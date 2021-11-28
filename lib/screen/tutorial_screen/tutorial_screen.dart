@@ -39,13 +39,16 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 indicatorCount: pageCount,
                 notifier: notifier,
                 activeIndicator: const Icon(
-                  Icons.check_circle,
+                  Icons.analytics_outlined,
+                  color: Colors.black,
+                ),
+                inActiveIndicator: const Icon(
+                  Icons.analytics_outlined,
                   color: Colors.white,
                 ),
-                inActiveIndicator: const Text('あああ'),
                 margin: 8,
-                inactiveIndicatorSize: 14,
-                activeIndicatorSize: 14,
+                inactiveIndicatorSize: 25,
+                activeIndicatorSize: 25,
               ),
             )
           ],

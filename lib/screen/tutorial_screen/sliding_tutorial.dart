@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sliding_tutorial/flutter_sliding_tutorial.dart';
+import 'package:prize_get_app/screen/tutorial_screen/children/tutorial_1_screen.dart';
+
+import 'children/tutorial_2_screen.dart';
+import 'children/tutorial_3_screen.dart';
 
 class SlidingTutorial extends StatefulWidget {
   final ValueNotifier<double> notifier;
@@ -42,17 +46,14 @@ class _SlidingTutorial extends State<SlidingTutorial> {
   Widget _getPageByIndex(int index) {
     switch (index % 3) {
       case 0:
-        return Container(
-          color: Colors.red,
-        );
+        //1枚目
+        return const Tutorial1Screen();
       case 1:
-        return Container(
-          color: Colors.blue,
-        );
+        //2枚目
+        return const Tutorial2Screen();
       case 2:
-        return Container(
-          color: Colors.yellow,
-        );
+        //3枚目
+        return const Tutorial3Screen();
       default:
         throw ArgumentError("Unknown position: $index");
     }

@@ -3,6 +3,7 @@ import 'package:flutter_animator/flutter_animator.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/color/app_color.dart';
+import 'package:prize_get_app/component/home_app_bar_item.dart';
 import 'package:prize_get_app/component/home_icon.dart';
 import 'package:prize_get_app/screen/home/home_screen_controller.dart';
 
@@ -19,27 +20,14 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: AppColor.homeColor,
           elevation: 0,
-          title: Row(
-            children: [
-              const HomeIcon(),
-              const SizedBox(width: 10),
-              Text(
-                '最長生存記録：${controller.highScore}日',
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
+          title: HomeAppbarItem(text: controller.highScore.value),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const Text(
-                '一か八か',
+                'タイトル未定',
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
@@ -47,11 +35,10 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Pulse(
-                preferences: const AnimationPreferences(
-                    autoPlay: AnimationPlayStates.Loop),
+                preferences: const AnimationPreferences(autoPlay: AnimationPlayStates.Loop),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 1.5,
-                  height: MediaQuery.of(context).size.width / 5,
+                  height: MediaQuery.of(context).size.width / 6,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.homeColor,
@@ -60,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                     child: const Text(
                       'スタート',
                       style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),

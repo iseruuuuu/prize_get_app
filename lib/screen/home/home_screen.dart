@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:prize_get_app/color/app_color.dart';
 import 'package:prize_get_app/screen/home/home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,29 +16,36 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColor.homeColor,
           elevation: 0,
+          title: Row(
+            children: [
+              Text('最長生存記録：${controller.highScore}日'),
+              const Spacer(),
+            ],
+          ),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const Text(
-                'GET OR FINISH',
+                '一か八か',
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green,
+                  color: AppColor.homeColor,
                 ),
               ),
               Pulse(
-                preferences: const AnimationPreferences(
-                  autoPlay: AnimationPlayStates.Loop
-                ),
+                preferences: const AnimationPreferences(autoPlay: AnimationPlayStates.Loop),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 1.5,
                   height: MediaQuery.of(context).size.width / 5,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColor.homeColor,
+                    ),
                     onPressed: controller.onTap,
                     child: const Text(
                       'スタート',
@@ -47,15 +55,6 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                  ),
-                ),
-              ),
-              Obx(() => Text(
-                  'High Score: ${controller.highScore}',
-                  style: const TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
                   ),
                 ),
               ),

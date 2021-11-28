@@ -168,7 +168,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.2"
   dart_style:
     dependency: transitive
     description:
@@ -250,7 +250,7 @@ packages:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.0"
   flutter_spinkit:
     dependency: transitive
     description:
@@ -401,6 +401,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+  pedantic:
+    dependency: transitive
+    description:
+      name: pedantic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.11.1"
   platform:
     dependency: transitive
     description:
@@ -447,20 +454,6 @@ packages:
     dependency: "direct dev"
     description:
       name: shared_preferences
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.9"
-  shared_preferences_android:
-    dependency: transitive
-    description:
-      name: shared_preferences_android
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.8"
-  shared_preferences_ios:
-    dependency: transitive
-    description:
-      name: shared_preferences_ios
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
@@ -519,7 +512,7 @@ packages:
       name: simple_animations
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.1.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -595,6 +588,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  tutorial_coach_mark:
+    dependency: "direct main"
+    description:
+      name: tutorial_coach_mark
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   typed_data:
     dependency: transitive
     description:

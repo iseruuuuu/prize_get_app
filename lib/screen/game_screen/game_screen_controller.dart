@@ -1,19 +1,38 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prize_get_app/preference/shared_preference.dart';
 import 'dart:math' as math;
 import 'package:prize_get_app/screen/result/result_screen.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class GameScreenController extends GetxController {
   var count = 0.obs;
   var randomPercent = 0.obs;
   var random = math.Random();
   var highScore = 0.obs;
+  var isTutorial = false.obs;
 
   @override
   void onInit() {
+    //チュートリアル画面を表示する。
+    checkTutorial();
     super.onInit();
     randomPercent.value = 100;
+  }
+
+  void checkTutorial() async {
+    isTutorial.value = await Preference().getBool(PreferenceKey.isTutorial);
+
+    //初回起動のみ
+    if (!isTutorial.value) {
+      showCupertinoModalBottomSheet(
+        expand: true,
+        context: Get.context!,
+        builder: (context) => Container(),
+      );
+      await Preference().setBool(PreferenceKey.isTutorial, true);
+    }
   }
 
   void onTapGet() {
@@ -143,4 +162,6 @@ class GameScreenController extends GetxController {
       Preference().setInt(PreferenceKey.HighScore, count.value);
     }
   }
+
+  void onTapTutorial() {}
 }

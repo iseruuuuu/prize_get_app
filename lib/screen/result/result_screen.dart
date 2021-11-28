@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
+import 'package:prize_get_app/color/app_color.dart';
 import 'package:prize_get_app/screen/result/result_screen_controller.dart';
 
 //TODO 結果によってアイコンを変えたい！！
 //TODO 結果をシェアをする？？
-//TODO
 
 class ResultScreen extends StatelessWidget {
   final int count;
@@ -23,27 +23,27 @@ class ResultScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: AppColor.homeColor,
+        title: const Text(
+          'ゲーム結果',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'ゲーム結果',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-              ),
-            ),
             const Spacer(),
             Text(
               'ポイント数：$count',
               style: const TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: AppColor.homeColor,
               ),
             ),
             const Spacer(),
@@ -52,6 +52,9 @@ class ResultScreen extends StatelessWidget {
                 autoPlay: AnimationPlayStates.Loop,
               ),
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: AppColor.homeColor,
+                ),
                 onPressed: controller.onTap,
                 child: const Text(
                   'タイトルへ戻る',

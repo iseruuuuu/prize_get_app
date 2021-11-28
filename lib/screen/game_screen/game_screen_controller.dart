@@ -5,6 +5,7 @@ import 'package:prize_get_app/preference/shared_preference.dart';
 import 'dart:math' as math;
 import 'package:prize_get_app/screen/result/result_screen.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:prize_get_app/screen/tutorial_screen/tutorial_screen.dart';
 
 class GameScreenController extends GetxController {
   var count = 0.obs;
@@ -25,11 +26,11 @@ class GameScreenController extends GetxController {
     isTutorial.value = await Preference().getBool(PreferenceKey.isTutorial);
 
     //初回起動のみ
-    if (!isTutorial.value) {
+    if (isTutorial.value) {
       showCupertinoModalBottomSheet(
         expand: true,
         context: Get.context!,
-        builder: (context) => Container(),
+        builder: (context) => const TutorialScreen(),
       );
       await Preference().setBool(PreferenceKey.isTutorial, true);
     }

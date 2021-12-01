@@ -120,6 +120,7 @@ class GameScreenController extends GetxController {
   }
 
   void _addPoint() {
+    _successOverDialog();
     count++;
   }
 
@@ -162,6 +163,22 @@ class GameScreenController extends GetxController {
     if (count.value > highScore.value) {
       Preference().setInt(PreferenceKey.HighScore, count.value);
     }
+  }
+
+  void _successOverDialog() async {
+    AwesomeDialog(
+      context: Get.context!,
+      dialogType: DialogType.SUCCES,
+      animType: AnimType.RIGHSLIDE,
+      headerAnimationLoop: true,
+      title: '生存成功!!',
+      desc: '次の日へ進めることができます！',
+    ).show();
+
+    await Future.delayed(const Duration(seconds: 3));
+
+    Get.back();
+
   }
 
   void onTapTutorial() {}

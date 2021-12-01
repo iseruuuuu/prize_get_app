@@ -38,8 +38,23 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
+            count > controller.highScore.value
+                ? Container()
+                : Bounce(
+                    preferences: const AnimationPreferences(
+                      autoPlay: AnimationPlayStates.Loop,
+                    ),
+                    child: const Text(
+                      '✨ハイスコア✨',
+                      style: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.yellow,
+                      ),
+                    ),
+                  ),
             Text(
-              'ポイント数：$count',
+              '生存数：$count日',
               style: const TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
@@ -47,10 +62,9 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Pulse(
-              preferences: const AnimationPreferences(
-                autoPlay: AnimationPlayStates.Loop,
-              ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width / 1.5,
+              height: MediaQuery.of(context).size.width / 5,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.homeColor,

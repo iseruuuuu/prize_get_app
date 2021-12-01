@@ -174,11 +174,8 @@ class GameScreenController extends GetxController {
       title: '生存成功!!',
       desc: '次の日へ進めることができます！',
     ).show();
-
-    await Future.delayed(const Duration(seconds: 3));
-
+    await Future.delayed(const Duration(seconds: 2));
     Get.back();
-
   }
 
   void onTapTutorial() {}

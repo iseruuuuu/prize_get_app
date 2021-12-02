@@ -9,9 +9,11 @@ import 'package:prize_get_app/screen/result/result_screen_controller.dart';
 
 class ResultScreen extends StatelessWidget {
   final int count;
+  final bool isHighScores;
 
   const ResultScreen({
     required this.count,
+    required this.isHighScores,
     Key? key,
   }) : super(key: key);
 
@@ -38,21 +40,21 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            count > controller.highScore.value
-                ? Container()
-                : Bounce(
-                    preferences: const AnimationPreferences(
-                      autoPlay: AnimationPlayStates.Loop,
-                    ),
-                    child: const Text(
-                      '✨ハイスコア✨',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.yellow,
-                      ),
-                    ),
-                  ),
+            // isHighScores
+            //     ? Bounce(
+            //         preferences: const AnimationPreferences(
+            //           autoPlay: AnimationPlayStates.Loop,
+            //         ),
+            //         child: const Text(
+            //           '✨ハイスコア✨',
+            //           style: TextStyle(
+            //             fontSize: 35,
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.yellow,
+            //           ),
+            //         ),
+            //       )
+            //     : Container(),
             Text(
               '生存数：$count日',
               style: const TextStyle(

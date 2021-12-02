@@ -9,10 +9,11 @@ import 'package:prize_get_app/screen/tutorial_screen/tutorial_screen.dart';
 
 class GameScreenController extends GetxController {
   var count = 0.obs;
-  var randomPercent = 0.obs;
-  var random = math.Random();
-  var highScore = 0.obs;
-  var isTutorial = false.obs;
+  final randomPercent = 0.obs;
+  final random = math.Random();
+  final highScore = 0.obs;
+  final isTutorial = false.obs;
+  final isHighScore = false.obs;
 
   @override
   void onInit() {
@@ -129,14 +130,19 @@ class GameScreenController extends GetxController {
       context: Get.context!,
       animType: AnimType.LEFTSLIDE,
       headerAnimationLoop: false,
-      dialogType: DialogType.SUCCES,
+      dialogType: DialogType.INFO_REVERSED,
       dismissOnBackKeyPress: false,
       title: 'ゲーム終了!',
       desc: '結果画面で得点をチェックしてみよう!!',
       btnOkText: '結果画面へ',
       btnOkOnPress: () {
         _checkHighScore();
-        Get.off(() => ResultScreen(count: count.value));
+        Get.off(
+          () => ResultScreen(
+            count: count.value,
+            isHighScores: isHighScore.value,
+          ),
+        );
       },
     ).show();
   }
@@ -152,7 +158,12 @@ class GameScreenController extends GetxController {
       dismissOnBackKeyPress: false,
       btnOkOnPress: () {
         count.value = 0;
-        Get.off(() => ResultScreen(count: count.value));
+        Get.off(
+          () => ResultScreen(
+            count: count.value,
+            isHighScores: isHighScore.value,
+          ),
+        );
       },
       btnOkText: '結果画面へ',
     ).show();
@@ -161,7 +172,7 @@ class GameScreenController extends GetxController {
   void _checkHighScore() async {
     highScore.value = await Preference().getInt(PreferenceKey.HighScore);
     if (count.value > highScore.value) {
-      Preference().setInt(PreferenceKey.HighScore, count.value);
+      await Preference().setInt(PreferenceKey.HighScore, count.value);
     }
   }
 
@@ -174,8 +185,6 @@ class GameScreenController extends GetxController {
       title: '生存成功!!',
       desc: '次の日へ進めることができます！',
     ).show();
-    await Future.delayed(const Duration(seconds: 2));
-    Get.back();
   }
 
   void onTapTutorial() {}
